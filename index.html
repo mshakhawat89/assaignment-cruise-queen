@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -124,7 +125,7 @@
                 <p>Thank you so much for choosing cruise-queen</p>
                 <br>
                 <p> Your reservation is Complete</p>
-                <br>
+                <div id="reservationBtn" class="btn btn-success">click to see your reservation</div>
                 <h2>Happy Journey</h2><br>
                 <p>Hope you will choose <span style="color: rgb(245, 42, 167);">Cruise-Queen</span> at your next journey
                 </p>
@@ -206,8 +207,8 @@
             document.getElementById('vat-amount').innerText = '$' + VAT;
             const grandTotal = subTotal + VAT;
             document.getElementById('grand-total').innerText = '$' + grandTotal;
-
         }
+
         function getInputValue(Class) {
             const ClassInput = document.getElementById(Class + '-count');
             const ClassCount = parseInt(ClassInput.value);
@@ -224,6 +225,12 @@
 
         })
 
+            document.getElementById('reservationBtn').addEventListener('click', function () {
+            document.getElementById('reservationBtn').style.display = "none";
+
+            document.getElementById('grand-total').innerText = '$' + grandTotal;
+
+        })
 
 
 
