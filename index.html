@@ -119,13 +119,14 @@
 
 
         <div class="row">
-            <div class="col-md-4"></div>
+            <div class="col-md-4">                
+            </div>
             <div id="confirmation" class="col-md-8">
-                <h2>Welcome to Cruise-Queen</h2><br>
+                <h3>Welcome to Cruise-Queen</h3>
                 <p>Thank you so much for choosing cruise-queen</p>
-                <br>
+                <p id="sms" style="color: blue;"></p>
                 <p> Your reservation is Complete</p>
-                <div id="reservationBtn" class="btn btn-success">click to see your reservation</div>
+                <div id="reservationBtn" class="btn btn-success" onclick="confirmationSms()">click to see your reservation</div>
                 <h2>Happy Journey</h2><br>
                 <p>Hope you will choose <span style="color: rgb(245, 42, 167);">Cruise-Queen</span> at your next journey
                 </p>
@@ -207,6 +208,7 @@
             document.getElementById('vat-amount').innerText = '$' + VAT;
             const grandTotal = subTotal + VAT;
             document.getElementById('grand-total').innerText = '$' + grandTotal;
+            return grandTotal;
         }
 
         function getInputValue(Class) {
@@ -277,7 +279,18 @@
         // };
 
 
-
+       //Confirmation message on booking
+       function confirmationSms() {
+            const fClassNum = getInputValue("first");
+            const eClassNum = getInputValue("economy");
+            const totalTicketNum = fClassNum + eClassNum;
+            document.getElementById("sms").innerHTML = 'You requested ' + totalTicketNum + ' ticket(s) and your total price is '+ '$' +' '+ calculateTotal();
+            const sms = document.querySelector(".sms");
+            sms.style.display = "block";
+    
+        
+        
+        }
 
 
 
